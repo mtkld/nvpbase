@@ -12,6 +12,10 @@ A simple configuration flag allows the same setup to switch between development 
 
 You clone this repo, remove my components and replace with your own. Then upload your version of NVPBase to your own repository. You can then use that as a base for your own Neovim configuration.
 
+## Note
+
+If a submodule is changed and pushed, the base need to have its commit pointers updated, or it will point to the old commit of the submodule. This is done by running the `./src/sync-all` script.
+
 ## Install
 
 Neovim defaults to running `~/.config/nvim/init.lua` as the main configuration file. This is where you should set the path to your NVPBase base directory.
