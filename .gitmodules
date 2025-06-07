@@ -46,3 +46,6 @@
 [submodule "plugins/sources/local/wswrite.nvim"]
 	path = plugins/sources/local/wswrite.nvim
 	url = git@github.com-mtkld:mtkld/wswrite.nvim
+[submodule "plugins/sources/local/adash.nvim"]
+	path = plugins/sources/local/adash.nvim
+	url = git@github.com-mtkld:mtkld/adash.nvim
