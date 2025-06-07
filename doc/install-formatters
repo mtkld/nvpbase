@@ -1,0 +1,29 @@
+Certainly — here’s a concise bullet list of commands to install all required formatters on **Arch Linux**:
+
+* ✅ **stylua** (Lua):
+
+  ```bash
+  sudo pacman -S stylua
+  ```
+
+* ✅ **shfmt** (Shell: sh, bash, zsh):
+
+  ```bash
+  sudo pacman -S shfmt
+  ```
+
+* ✅ **clang-format** (C):
+
+  ```bash
+  sudo pacman -S clang
+  ```
+
+* ✅ **prettier** (JavaScript, TypeScript, HTML, CSS, JSON, Markdown, YAML):
+
+  ```bash
+  sudo pacman -S nodejs npm
+  npm install -g prettier
+  ```
+
+Let me know if you want to generate config files for any of them.
+

@@ -1,0 +1,51 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+cd "$(git rev-parse --show-toplevel)"
+
+echo ""
+echo "🔁 Checking submodules..."
+git submodule foreach '
+    echo "📦 $name";
+    cd $toplevel/$sm_path
+    if ! git diff-index --quiet HEAD --; then
+        echo "  📝 Changes detected in $name"
+        git status --short
+	read -p "  → Commit and push changes? [Y/n] " confirm
+	confirm=${confirm:-y}
+        if [[ $confirm =~ ^[Yy]$ ]]; then
+            git add .
+            read -p "  → Commit message: " msg
+            git commit -m "${msg:-Update $name}"
+            git push
+        fi
+    else
+        echo "  ✅ Clean"
+    fi
+'
+
+echo ""
+echo "🔍 Checking base repo status..."
+# 1. Check if working tree has changes (tracked or untracked)
+if [[ -n $(git status --porcelain) ]]; then
+	echo "⚠️ Base repo has changes:"
+	git status --short
+	read -rp "Stage and commit base repo changes? [y/N] " confirm
+	if [[ $confirm =~ ^[Yy]$ ]]; then
+		git add -A
+		read -rp "Enter commit message: " msg
+		git commit -m "${msg:-"Sync base repo changes"}"
+	fi
+else
+	echo "✅ Base repo is clean."
+fi
+
+echo ""
+echo "⬆️  Final base repo push?"
+read -rp "Push base repo now? [y/N] " push_confirm
+if [[ $push_confirm =~ ^[Yy]$ ]]; then
+	git push
+	echo "✅ All pushed."
+else
+	echo "❗ Remember to push later: git push"
+fi

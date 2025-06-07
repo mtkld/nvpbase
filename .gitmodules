@@ -1,0 +1,48 @@
+[submodule "plugins/sources/local/bubblecol.nvim"]
+	path = plugins/sources/local/bubblecol.nvim
+	url = git@github.com-mtkld:mtkld/bubblecol.nvim
+[submodule "plugins/sources/local/color-theme.nvim"]
+	path = plugins/sources/local/color-theme.nvim
+	url = git@github.com-mtkld:mtkld/color-theme.nvim
+[submodule "plugins/sources/local/ctxterm.nvim"]
+	path = plugins/sources/local/ctxterm.nvim
+	url = git@github.com-mtkld:mtkld/ctxterm.nvim
+[submodule "plugins/sources/local/devenv.nvim"]
+	path = plugins/sources/local/devenv.nvim
+	url = git@github.com-mtkld:mtkld/devenv.nvim
+[submodule "plugins/sources/local/dynkey.nvim"]
+	path = plugins/sources/local/dynkey.nvim
+	url = git@github.com-mtkld:mtkld/dynkey.nvim
+[submodule "plugins/sources/local/f3c-syntax-hl.nvim"]
+	path = plugins/sources/local/f3c-syntax-hl.nvim
+	url = git@github.com-mtkld:mtkld/f3c-syntax-hl.nvim
+[submodule "plugins/sources/local/fixedspace.nvim"]
+	path = plugins/sources/local/fixedspace.nvim
+	url = git@github.com-mtkld:mtkld/fixedspace.nvim
+[submodule "plugins/sources/local/funview.nvim"]
+	path = plugins/sources/local/funview.nvim
+	url = git@github.com-mtkld:mtkld/funview.nvim
+[submodule "plugins/sources/local/greatinit.nvim"]
+	path = plugins/sources/local/greatinit.nvim
+	url = git@github.com-mtkld:mtkld/greatinit.nvim
+[submodule "plugins/sources/local/keypoint.nvim"]
+	path = plugins/sources/local/keypoint.nvim
+	url = git@github.com-mtkld:mtkld/keypoint.nvim
+[submodule "plugins/sources/local/mdtoc.nvim"]
+	path = plugins/sources/local/mdtoc.nvim
+	url = git@github.com-mtkld:mtkld/mdtoc.nvim
+[submodule "plugins/sources/local/permtermbuf.nvim"]
+	path = plugins/sources/local/permtermbuf.nvim
+	url = git@github.com-mtkld:mtkld/permtermbuf.nvim
+[submodule "plugins/sources/local/phxm.nvim"]
+	path = plugins/sources/local/phxm.nvim
+	url = git@github.com-mtkld:mtkld/phxm.nvim
+[submodule "plugins/sources/local/gitwatch.nvim"]
+	path = plugins/sources/local/gitwatch.nvim
+	url = git@github.com-mtkld:mtkld/gitwatch.nvim
+[submodule "plugins/sources/local/nntmwrite.nvim"]
+	path = plugins/sources/local/nntmwrite.nvim
+	url = git@github.com-mtkld:mtkld/nntmwrite.nvim
+[submodule "plugins/sources/local/wswrite.nvim"]
+	path = plugins/sources/local/wswrite.nvim
+	url = git@github.com-mtkld:mtkld/wswrite.nvim
