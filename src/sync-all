@@ -6,21 +6,39 @@ cd "$(git rev-parse --show-toplevel)"
 echo ""
 echo "🔁 Checking submodules..."
 git submodule foreach '
-    echo "📦 $name";
-    cd $toplevel/$sm_path
+    echo "📦 $name"
+    cd "$toplevel/$sm_path"
+
+    head_commit=$(git rev-parse HEAD)
+    base_commit=$(git -C "$toplevel" ls-tree HEAD "$sm_path" | awk "{print \$3}")
+
     if ! git diff-index --quiet HEAD --; then
-        echo "  📝 Changes detected in $name"
+        echo "  📝 Uncommitted changes in working directory"
         git status --short
-	read -p "  → Commit and push changes? [Y/n] " confirm
-	confirm=${confirm:-y}
+        read -p "  → Commit and push changes? [Y/n] " confirm
+        confirm=${confirm:-y}
         if [[ $confirm =~ ^[Yy]$ ]]; then
             git add .
             read -p "  → Commit message: " msg
             git commit -m "${msg:-Update $name}"
             git push
+            head_commit=$(git rev-parse HEAD) # update after push
         fi
     else
-        echo "  ✅ Clean"
+        echo "  ✅ Working tree clean"
+    fi
+
+    # Recheck base vs submodule pointer
+    base_commit=$(git -C "$toplevel" ls-tree HEAD "$sm_path" | awk "{print \$3}")
+    head_commit=$(git rev-parse HEAD)
+
+    if [[ "$base_commit" != "$head_commit" ]]; then
+        echo "  🔄 Base repo pointer is outdated for $name"
+        echo "     Base has:  $base_commit"
+        echo "     Submod is: $head_commit"
+        echo "  💡 Run: git add $sm_path   # in base repo"
+    else
+        echo "  🔗 Base pointer is up-to-date"
     fi
 '
 
