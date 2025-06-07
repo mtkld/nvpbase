@@ -106,6 +106,10 @@ return {
 				name = "adash",
 				cmd = "adash ~/remote/matkalkyl.dev/adash",
 				buffer_name = "adash-term",
+				callback_post_toggle_out = function()
+					log("---------------Refreshing adash state after toggling out of adash terminal")
+					require("adash").refresh()
+				end,
 			},
 			{
 				name = "neomutt",
